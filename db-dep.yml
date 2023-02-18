@@ -18,9 +18,10 @@ spec:
         - name: app-db
           image: mysql
           args:
-            - "ignore-db-dir=lost+found"
+            - "--ignore-db-dir=lost+found"
           volumeMounts:
             - mountPath: /var/lib/mysql
+              name: app-db-data
           ports:
             - name: db-port
               containerPort: 3306
